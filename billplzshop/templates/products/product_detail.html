@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row mt-5">
+        <div class="col align-self-center text-center">
+            <img
+                style="width: 100px;"
+                class="card-img-top"
+                src="https://picsum.photos/seed/picsum/100/100"
+            >
+            <h1>{{ product.name }}</h1>
+            <p>{{ product.price }}</p>
+            <form action="{% url 'products:checkout' product.pk %}" method="post">
+                {% csrf_token %}
+                <button class="btn btn-primary" type="submit">
+                    Pay
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
