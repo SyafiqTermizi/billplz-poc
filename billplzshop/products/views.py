@@ -24,7 +24,7 @@ class ProductCheckoutView(LoginRequiredMixin, View):
             user=self.request.user,
             description=product.name,
             amount=product.price,
-            redirect_url='https://shopee.com.my/'
+            redirect_url='http://staging.syafiqtermizi.com'
         )
         ProductBill.objects.create(product=product, bill=bill['bill'])
         return HttpResponseRedirect(bill['url'])
